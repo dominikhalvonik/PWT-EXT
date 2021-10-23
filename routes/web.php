@@ -20,5 +20,10 @@ Route::get('/', function () {
 
 Route::get('/test', [HomeController::class, 'test']);
 
-Route::get('/insert', [HomeController::class, 'insert']);
-Route::get('/select', [HomeController::class, 'select']);
+Route::get('/insert-task-form', [HomeController::class, 'getInsertForm'])->name('insert-form');
+Route::post('/insert-task', [HomeController::class, 'insertTask'])->name('insert');
+Route::get('/select-all-tasks', [HomeController::class, 'selectAllTasks'])->name('select-all-tasks');
+Route::get('/select-task/{id}', [HomeController::class, 'selectTask'])->name('select');
+Route::get('/delete-task/{id}', [HomeController::class, 'deleteTask'])->name('delete');
+Route::get('/update-task-form/{id}', [HomeController::class, 'getUpdateForm'])->name('update-form');
+Route::post('/update-task', [HomeController::class, 'updateTask'])->name('update');
